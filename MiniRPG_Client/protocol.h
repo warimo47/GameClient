@@ -83,12 +83,12 @@ struct sc_login_ok
 {
 	unsigned char size;
 	unsigned char type;
-	unsigned short id;
-	unsigned short x;
-	unsigned short y;
-	unsigned short hp;
-	unsigned char level;
-	unsigned long exp;
+	int myKey;
+	int level;
+	int x;
+	int y;
+	int exp;
+	int hp;
 };
 
 struct sc_login_fail
@@ -101,17 +101,17 @@ struct sc_position_info
 {
 	unsigned char size;
 	unsigned char type;
-	unsigned short id;
-	unsigned short x;
-	unsigned short y;
-	unsigned char objectType;
+	int targetKey;
+	int objectType;
+	int x;
+	int y;
 };
 
 struct sc_chat
 {
 	unsigned char size;
 	unsigned char type;
-	unsigned short id;
+	int speakerKey;
 	wchar_t chat_str[MAX_STR_SIZE];
 };
 
@@ -130,15 +130,15 @@ struct sc_remove_object
 {
 	unsigned char size;
 	unsigned char type;
-	unsigned short id;
-	unsigned char objectType;
+	int targetKey;
+	int objectType;
 };
 
 struct sc_add_object
 {
 	unsigned char size;
 	unsigned char type;
-	unsigned short id;
+	int targetKey;
 	unsigned char objectType;
 	unsigned short hp;
 };

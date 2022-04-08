@@ -246,14 +246,14 @@ void SceneManager::Render(HDC hViewdc)
 
 void SceneManager::LoginOkey(sc_login_ok* pBuf)
 {
-	m_Myid = pBuf->id;
+	m_Myid = pBuf->myKey;
 
-	m_cClients[pBuf->id].objectType = OT_USER;
-	m_cClients[pBuf->id].posX = pBuf->x;
-	m_cClients[pBuf->id].posY = pBuf->y;
-	m_cClients[pBuf->id].level = pBuf->level;
-	m_cClients[pBuf->id].exp = pBuf->exp;
-	m_cClients[pBuf->id].hp = pBuf->hp;
+	m_cClients[pBuf->myKey].objectType = OT_USER;
+	m_cClients[pBuf->myKey].posX = pBuf->x;
+	m_cClients[pBuf->myKey].posY = pBuf->y;
+	m_cClients[pBuf->myKey].level = pBuf->level;
+	m_cClients[pBuf->myKey].exp = pBuf->exp;
+	m_cClients[pBuf->myKey].hp = pBuf->hp;
 }
 
 void SceneManager::LoginFail(sc_login_fail* pBuf)
@@ -265,13 +265,13 @@ void SceneManager::PosUpdate(sc_position_info* pBuf)
 {
 	if (pBuf->objectType == OT_USER)
 	{
-		m_cClients[pBuf->id].posX = static_cast<int>(pBuf->x);
-		m_cClients[pBuf->id].posY = static_cast<int>(pBuf->y);
+		m_cClients[pBuf->targetKey].posX = static_cast<int>(pBuf->x);
+		m_cClients[pBuf->targetKey].posY = static_cast<int>(pBuf->y);
 	}
 	else
 	{
-		m_cNPCs[pBuf->id].posX = static_cast<int>(pBuf->x);
-		m_cNPCs[pBuf->id].posY = static_cast<int>(pBuf->y);
+		m_cNPCs[pBuf->targetKey].posX = static_cast<int>(pBuf->x);
+		m_cNPCs[pBuf->targetKey].posY = static_cast<int>(pBuf->y);
 	}
 }
 
@@ -307,11 +307,11 @@ void SceneManager::RemoveObject(sc_remove_object* pBuf)
 {
 	if (pBuf->objectType == OT_USER)
 	{
-		m_cClients[pBuf->id].objectType = OT_NONE;
+		m_cClients[pBuf->targetKey].objectType = OT_NONE;
 	}
 	else
 	{
-		m_cNPCs[pBuf->id].objectType = OT_NONE;
+		m_cNPCs[pBuf->targetKey].objectType = OT_NONE;
 	}
 }
 
@@ -319,12 +319,12 @@ void SceneManager::AddObject(sc_add_object* pBuf)
 {
 	if (pBuf->objectType == OT_USER)
 	{
-		m_cClients[pBuf->id].objectType = pBuf->objectType;
+		m_cClients[pBuf->targetKey].objectType = pBuf->objectType;
 	}
 	else
 	{
-		m_cNPCs[pBuf->id].objectType = pBuf->objectType;
-		m_cNPCs[pBuf->id].hp = pBuf->hp;
+		m_cNPCs[pBuf->targetKey].objectType = pBuf->objectType;
+		m_cNPCs[pBuf->targetKey].hp = pBuf->hp;
 	}
 }
 
