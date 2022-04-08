@@ -1,9 +1,10 @@
 #pragma once
 
-#include "../../../NeoplePortfolio/NeoplePortfolio/protocol.h"
 #include <atlimage.h>
 #include <iostream>
 #include <fstream>
+
+#include "protocol.h"
 
 struct Client
 {

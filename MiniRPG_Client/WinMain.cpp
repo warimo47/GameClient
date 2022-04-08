@@ -63,7 +63,7 @@ int Game_Init()
 	ZeroMemory(&sAddr, sizeof(sAddr));
 	sAddr.sin_family = AF_INET;
 	sAddr.sin_port = htons(MY_SERVER_PORT);
-	sAddr.sin_addr.s_addr = inet_addr("192.168.0.63");
+	sAddr.sin_addr.s_addr = inet_addr("192.168.0.45");
 
 	std::cout << "아이디를 입력하세요 : ";
 
@@ -82,7 +82,7 @@ int Game_Init()
 	in_packet_size = 0;
 	saved_packet_size = 0;
 
-	cs_login *my_packet = reinterpret_cast<cs_login *>(send_buffer);
+	cs_login *my_packet = reinterpret_cast<cs_login*>(send_buffer);
 	my_packet->size = sizeof(cs_login);
 	my_packet->type = CS_LOGIN;
 	wcscpy_s(my_packet->id_str, g_cSceneManager->m_id_str);
