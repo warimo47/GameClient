@@ -119,11 +119,11 @@ struct sc_stat_change
 {
 	unsigned char size;
 	unsigned char type;
-	unsigned char id;
-	unsigned char objectType;
-	unsigned short hp;
-	unsigned char level;
-	unsigned long exp;
+	int targetKey;
+	int objectType;
+	int level;
+	int exp;
+	int hp;
 };
 
 struct sc_remove_object
@@ -139,8 +139,8 @@ struct sc_add_object
 	unsigned char size;
 	unsigned char type;
 	int targetKey;
-	unsigned char objectType;
-	unsigned short hp;
+	int objectType;
+	int hp;
 };
 
 #pragma pack (pop)
