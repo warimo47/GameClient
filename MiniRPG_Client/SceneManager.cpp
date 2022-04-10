@@ -287,19 +287,19 @@ void SceneManager::Chat(sc_chat* pBuf)
 
 void SceneManager::StatChange(sc_stat_change* pBuf)
 {
-	if (pBuf->objectType == OT_USER && m_cClients[pBuf->id].objectType == OT_USER)
+	if (pBuf->objectType == OT_USER && m_cClients[pBuf->targetKey].objectType == OT_USER)
 	{
-		m_cClients[pBuf->id].hp = pBuf->hp;
-		m_cClients[pBuf->id].exp = pBuf->exp;
-		m_cClients[pBuf->id].level = pBuf->level;
-		m_cClients[pBuf->id].objectType = pBuf->objectType;
+		m_cClients[pBuf->targetKey].hp = pBuf->hp;
+		m_cClients[pBuf->targetKey].exp = pBuf->exp;
+		m_cClients[pBuf->targetKey].level = pBuf->level;
+		m_cClients[pBuf->targetKey].objectType = pBuf->objectType;
 	}
-	else if (m_cNPCs[pBuf->id].objectType != OT_NONE)
+	else if (m_cNPCs[pBuf->targetKey].objectType != OT_NONE)
 	{
-		m_cNPCs[pBuf->id].hp = pBuf->hp;
-		m_cNPCs[pBuf->id].exp = pBuf->exp;
-		m_cNPCs[pBuf->id].level = pBuf->level;
-		m_cNPCs[pBuf->id].objectType = pBuf->objectType;
+		m_cNPCs[pBuf->targetKey].hp = pBuf->hp;
+		m_cNPCs[pBuf->targetKey].exp = pBuf->exp;
+		m_cNPCs[pBuf->targetKey].level = pBuf->level;
+		m_cNPCs[pBuf->targetKey].objectType = pBuf->objectType;
 	}
 }
 

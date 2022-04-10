@@ -17,11 +17,11 @@
 
 #define ID_STR_LENGTH 10
 
-#define PT_RECV 0
-#define PT_SEND 1
-#define PT_NPC_MOVE 2
-#define PT_NPC_ATTACK 3
-#define PT_USER_HEAL 4
+#define IOT_RECV 0
+#define IOT_SEND 1
+#define IOT_NPC_MOVE 2
+#define IOT_NPC_ATTACK 3
+#define IOT_USER_HEAL 4
 
 #define CS_LOGIN 1
 #define CS_LOGOUT 2
