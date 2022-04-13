@@ -21,7 +21,8 @@
 #define IOT_SEND 1
 #define IOT_NPC_MOVE 2
 #define IOT_NPC_ATTACK 3
-#define IOT_USER_HEAL 4
+#define IOT_NPC_RESPAWN 4
+#define IOT_USER_HEAL 5
 
 #define CS_LOGIN 1
 #define CS_LOGOUT 2
